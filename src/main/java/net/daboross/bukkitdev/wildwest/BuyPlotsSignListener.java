@@ -20,8 +20,21 @@ public class BuyPlotsSignListener implements Listener {
     public void onSignCreate(SignChangeEvent sign) {
         Player player = sign.getPlayer();
         if (sign.getLine(0).equalsIgnoreCase("[BuyPlots]")) {
-            player.sendMessage(MessageStatic.BUYPLOTS_CONFIRMATION);
             sign.setLine(0, "[BuyPlots]");
+            String line2 = sign.getLine(2);
+            int line2num;
+            boolean parsed = true;
+            try {
+                line2num = Integer.parseInt(line2);
+            } catch (NumberFormatException nfe) {
+                parsed = false;
+            }
+            if (parsed) {
+                player.sendMessage(MessageStatic.BUYPLOTS_CONFIRMATION);
+            } else {
+                sign.setLine(1, "INVALID #");
+                player.sendMessage(MessageStatic.BUYPLOTS_NUMBER_FORMAT_ERROR);
+            }
         }
     }
 }
