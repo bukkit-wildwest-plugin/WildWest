@@ -1,5 +1,6 @@
 name: WildWest
-main: net.daboross.bukkitdev.water.WildWestMain
+main: net.daboross.bukkitdev.wildwest.WildWestMain
 version: 1.0
-author: Dabo Ross
+authors: [Dabo Ross, NerdFurys]
 description: WildWest - Stub
+depend: [Vault]
