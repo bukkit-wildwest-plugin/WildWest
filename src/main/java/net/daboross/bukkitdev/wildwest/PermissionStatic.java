@@ -10,5 +10,6 @@ package net.daboross.bukkitdev.wildwest;
  * @author daboross
  */
 public class PermissionStatic {
-    public static final String GOLD_PANNING="wildwest.canpangold";
+
+    public static final String GOLD_PANNING = "wildwest.canpangold";
 }
