@@ -1,12 +1,5 @@
-/*
- * Author: Dabo Ross
- * Website: www.daboross.net
- * Email: daboross@daboross.net
- */
 package net.daboross.bukkitdev.wildwest;
 
-import org.bukkit.Bukkit;
-import org.bukkit.Location;
 import org.bukkit.Material;
 import org.bukkit.entity.Player;
 import org.bukkit.event.EventHandler;
@@ -17,7 +10,6 @@ import org.bukkit.scheduler.BukkitRunnable;
 
 /**
  *
- * @author daboross
  */
 public class GoldPanningListener implements Listener {
 
@@ -30,7 +22,7 @@ public class GoldPanningListener implements Listener {
     @EventHandler
     public void waterPanning(PlayerBucketFillEvent event) {
         final Player p = event.getPlayer();
-        if (p.hasPermission("wildwest.goldpanning")) {
+        if (p.hasPermission(PermissionStatic.GOLD_PANNING)) {
             p.sendMessage(MessageStatic.PANNING_WAITING);
             new BukkitRunnable() {
                 Integer panningTimes = 6;

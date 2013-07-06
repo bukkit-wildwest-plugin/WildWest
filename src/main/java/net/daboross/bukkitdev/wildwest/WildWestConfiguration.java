@@ -1,8 +1,3 @@
-/*
- * Author: Dabo Ross
- * Website: www.daboross.net
- * Email: daboross@daboross.net
- */
 package net.daboross.bukkitdev.wildwest;
 
 import java.util.ArrayList;
@@ -16,7 +11,6 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 /**
  *
- * @author daboross
  */
 public class WildWestConfiguration {
 
@@ -43,5 +37,9 @@ public class WildWestConfiguration {
 
     public List<Location> getPanningLocations() {
         return Collections.unmodifiableList(panningLocations);
+    }
+
+    public int getDistanceMayorCanMove() {
+        return 50; // To Be Implemented
     }
 }

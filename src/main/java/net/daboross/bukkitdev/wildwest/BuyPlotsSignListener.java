@@ -5,11 +5,14 @@ import org.bukkit.event.EventHandler;
 import org.bukkit.event.Listener;
 import org.bukkit.event.block.SignChangeEvent;
 
-public class BuyPlots implements Listener {
+/**
+ *
+ */
+public class BuyPlotsSignListener implements Listener {
 
     private final WildWestBukkit wildWestBukkit;
 
-    public BuyPlots(WildWestBukkit wildWestBukkit) {
+    public BuyPlotsSignListener(WildWestBukkit wildWestBukkit) {
         this.wildWestBukkit = wildWestBukkit;
     }
 
