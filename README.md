@@ -11,3 +11,7 @@ Bukkit Forum Thread: http://forums.bukkit.org/threads/getting-a-team-of-people.1
 Specifications:
 
 General System: https://github.com/bukkit-wildwest-plugin/WildWest/wiki/Specs-%7C-General-System
+
+Money System: https://github.com/bukkit-wildwest-plugin/WildWest/wiki/Specs-%7C-Money-System
+
+Railroad System: https://github.com/bukkit-wildwest-plugin/WildWest/wiki/Specs-%7C-Railroad-System
