@@ -3,7 +3,7 @@
  * Website: www.daboross.net
  * Email: daboross@daboross.net
  */
-package net.daboross.bukkitdev.water;
+package net.daboross.bukkitdev.wildwest;
 
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
@@ -20,7 +20,7 @@ import org.bukkit.scheduler.BukkitRunnable;
  *
  * @author daboross
  */
-public class Water extends JavaPlugin implements Listener {
+public class WildWestBukkit extends JavaPlugin implements Listener {
 
     @Override
     public void onEnable() {
