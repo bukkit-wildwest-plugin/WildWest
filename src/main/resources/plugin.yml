@@ -1,0 +1,5 @@
+name: Water
+main: net.daboross.bukkitdev.water.Water
+version: 1.0
+author: Dabo Ross
+description: Water Thing
