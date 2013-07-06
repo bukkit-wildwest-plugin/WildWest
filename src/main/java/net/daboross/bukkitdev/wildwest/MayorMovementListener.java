@@ -26,6 +26,7 @@ public class MayorMovementListener {
             if (event.getTo().distance(loc) >= 50) {
                 p.teleport(p);
                 p.sendMessage("You cannont leave your town");
+                event.setCancelled(true);
             }
         }
     }
