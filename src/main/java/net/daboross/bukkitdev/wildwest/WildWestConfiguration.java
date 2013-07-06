@@ -27,10 +27,10 @@ public class WildWestConfiguration {
         this.wildWestBukkit = wildWestBukkit;
         FileConfiguration config = wildWestBukkit.getConfig();
         for (String panningLocationSection : config.getConfigurationSection("PanLocations").getKeys(false)) {
-            double panningX = config.getDouble("Pan-locations." + panningLocationSection + ".x");
-            double panningY = config.getDouble("Pan-locations." + panningLocationSection + ".y");
-            double panningZ = config.getDouble("Pan-locations." + panningLocationSection + ".z");
-            String panningWorldName = config.getString("Pan Locations." + panningLocationSection + ".world");
+            double panningX = config.getDouble("pan-locations." + panningLocationSection + ".x");
+            double panningY = config.getDouble("pan-locations." + panningLocationSection + ".y");
+            double panningZ = config.getDouble("pan-locations." + panningLocationSection + ".z");
+            String panningWorldName = config.getString("pan-locations." + panningLocationSection + ".world");
             World panningWorld = Bukkit.getWorld(panningWorldName);
             if (panningWorld == null) {
                 wildWestBukkit.getLogger().log(Level.WARNING, "Invalid world in config: {0}", panningWorldName);
