@@ -16,6 +16,7 @@ public class Thirst implements Listener{
     	 if(sign.getLine(0).equalsIgnoreCase("[BuyPlots]")){
     		 player.sendMessage("Your BuyPlots sign has been set up correctly");
     		 sign.setLine(0, "[BuyPlots]");
+    		 //More to be added, Tired xD
     	 }
      }
 }
