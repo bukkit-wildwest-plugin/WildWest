@@ -19,6 +19,11 @@ public class WildWestConfiguration {
 
     public WildWestConfiguration(WildWestBukkit wildWestBukkit) {
         this.wildWestBukkit = wildWestBukkit;
+        reloadConfig0();
+
+    }
+
+    private void reloadConfig0() {
         FileConfiguration config = wildWestBukkit.getConfig();
         for (String panningLocationSection : config.getConfigurationSection("pan-locations").getKeys(false)) {
             double panningX = config.getDouble("pan-locations." + panningLocationSection + ".x");
@@ -33,6 +38,10 @@ public class WildWestConfiguration {
                 panningLocations.add(location);
             }
         }
+    }
+
+    public void reloadConfig() {
+        reloadConfig0();
     }
 
     public List<Location> getPanningLocations() {
