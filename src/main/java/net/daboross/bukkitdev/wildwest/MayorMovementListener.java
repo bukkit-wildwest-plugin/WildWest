@@ -23,8 +23,8 @@ public class MayorMovementListener {
             String town = townMayors.get(p.getName());
             Location loc = townCenters.get(town);
             //distance listed here should be config set
-            if (p.getLocation().distance(loc) >= 50) {
-                p.teleport(loc);
+            if (event.getTo().distance(loc) >= 50) {
+                p.teleport(p);
                 p.sendMessage("You cannont leave your town");
             }
         }
