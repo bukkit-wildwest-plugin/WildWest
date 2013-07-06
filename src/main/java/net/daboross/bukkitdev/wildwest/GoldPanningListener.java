@@ -31,24 +31,23 @@ public class GoldPanningListener implements Listener {
     public void waterPanning(PlayerBucketFillEvent event) {
         final Player p = event.getPlayer();
         if (p.hasPermission("wildwest.goldpanning")) {
-            p.sendMessage("Panning...");
+            p.sendMessage(MessageStatic.PANNING_WAITING);
             new BukkitRunnable() {
                 Integer panningTimes = 6;
 
                 @Override
                 public void run() {
                     if (panningTimes <= 0) {
-                        p.sendMessage("You've found nothing");
+                        p.sendMessage(MessageStatic.PANNING_NOTHING_FOUND);
                         cancel();
                     }
-                    p.sendMessage("Panning...");
                     Integer r = (int) (Math.random() * 100);
                     if (r <= 5) {
-                        Integer ammount = (int) (Math.random() * 5);
-                        p.getInventory().addItem(new ItemStack(Material.GOLD_NUGGET, ammount));
-                        p.sendMessage("You've found " + ammount + " gold nuggets while panning water!");
+                        Integer amount = (int) (Math.random() * 5);
+                        p.getInventory().addItem(new ItemStack(Material.GOLD_NUGGET, amount));
+                        p.sendMessage(String.format(MessageStatic.PANNING_FOUND, amount));
                     }
-                    p.sendMessage("Panning...");
+                    p.sendMessage(MessageStatic.PANNING_WAITING);
                     panningTimes--;
                 }
             }.runTaskTimer(wildWestBukkit, 20, 20);

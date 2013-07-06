@@ -17,9 +17,8 @@ public class BuyPlots implements Listener {
     public void onSignCreate(SignChangeEvent sign) {
         Player player = sign.getPlayer();
         if (sign.getLine(0).equalsIgnoreCase("[BuyPlots]")) {
-            player.sendMessage("Your BuyPlots sign has been set up correctly");
+            player.sendMessage(MessageStatic.BUYPLOTS_CONFIRMATION);
             sign.setLine(0, "[BuyPlots]");
-            //More to be added, Tired xD
         }
     }
 }
