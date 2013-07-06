@@ -26,7 +26,7 @@ public class WildWestConfiguration {
     public WildWestConfiguration(WildWestBukkit wildWestBukkit) {
         this.wildWestBukkit = wildWestBukkit;
         FileConfiguration config = wildWestBukkit.getConfig();
-        for (String panningLocationSection : config.getConfigurationSection("PanLocations").getKeys(false)) {
+        for (String panningLocationSection : config.getConfigurationSection("pan-locations").getKeys(false)) {
             double panningX = config.getDouble("pan-locations." + panningLocationSection + ".x");
             double panningY = config.getDouble("pan-locations." + panningLocationSection + ".y");
             double panningZ = config.getDouble("pan-locations." + panningLocationSection + ".z");
@@ -36,9 +36,7 @@ public class WildWestConfiguration {
                 wildWestBukkit.getLogger().log(Level.WARNING, "Invalid world in config: {0}", panningWorldName);
             } else {
                 Location location = new Location(panningWorld, panningX, panningY, panningZ);
-                if (location != null) {
-                    panningLocations.add(location);
-                }
+                panningLocations.add(location);
             }
         }
     }

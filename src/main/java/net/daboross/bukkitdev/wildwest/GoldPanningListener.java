@@ -29,38 +29,29 @@ public class GoldPanningListener implements Listener {
 
     @EventHandler
     public void waterPanning(PlayerBucketFillEvent event) {
-        Player p = event.getPlayer();
-        if (p.hasPermission("Panning")) {
-            for (Location panningLocation : wildWestBukkit.getWildWestConfiguration().getPanningLocations()) {
-                if (p.getLocation().getWorld() == panningLocation.getWorld()) {
-                    //whatever pan distance you want
-                    if (p.getLocation().distance(panningLocation) <= 5) {
-                        //what ever chance you want for panning for each item
-                        Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "manudelp " + p.getName() + " Panning");
-                        final Player pl = p;
-                        new BukkitRunnable() {
-                            Integer t = 6;
+        final Player p = event.getPlayer();
+        if (p.hasPermission("wildwest.goldpanning")) {
+            p.sendMessage("Panning...");
+            new BukkitRunnable() {
+                Integer panningTimes = 6;
 
-                            @Override
-                            public void run() {
-                                if (t <= 0) {
-                                    pl.sendMessage("You've found nothing");
-                                    cancel();
-                                    Bukkit.dispatchCommand(Bukkit.getConsoleSender(), "manuaddp " + pl.getName() + " Panning");
-                                }
-                                pl.sendMessage("Panning...");
-                                Integer r = (int) (Math.random() * 100);
-                                if (r <= 5) {
-                                    Integer ammount = (int) (Math.random() * 5);
-                                    pl.getInventory().addItem(new ItemStack(Material.GOLD_NUGGET, ammount));
-                                    pl.sendMessage("you've found " + ammount + " gold nuggets while panning water!");
-                                }
-                                t--;
-                            }
-                        }.runTaskTimer(wildWestBukkit, 20, 20);
+                @Override
+                public void run() {
+                    if (panningTimes <= 0) {
+                        p.sendMessage("You've found nothing");
+                        cancel();
                     }
+                    p.sendMessage("Panning...");
+                    Integer r = (int) (Math.random() * 100);
+                    if (r <= 5) {
+                        Integer ammount = (int) (Math.random() * 5);
+                        p.getInventory().addItem(new ItemStack(Material.GOLD_NUGGET, ammount));
+                        p.sendMessage("You've found " + ammount + " gold nuggets while panning water!");
+                    }
+                    p.sendMessage("Panning...");
+                    panningTimes--;
                 }
-            }
+            }.runTaskTimer(wildWestBukkit, 20, 20);
         }
     }
 }
