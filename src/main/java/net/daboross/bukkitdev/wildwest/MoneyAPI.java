@@ -1,16 +1,16 @@
-package net.daboross.bukkitdev.wildwest;
+package io.github.lst96.Wild;
 
 import java.io.File;
-import org.bukkit.entity.Player;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
+import org.bukkit.entity.Player;
 
 public class MoneyAPI
 {
-  private WildWestBukkit plugin;
+  private mcmoney plugin;
   private static MoneyAPI singleton;
 
-  public MoneyAPI(WildWestBukkit plugin)
+  public MoneyAPI(mcmoney plugin)
   {
     this.plugin = plugin;
     singleton = this;
@@ -51,7 +51,7 @@ public class MoneyAPI
   {
     File file = getMoneyFile();
     FileConfiguration conf = getMoneyConfig();
-    String startmoney = "1000";
+    double startmoney = this.plugin.getConfig().getDouble("Starting Balance");
     conf.addDefault(player.getName() + ".Money", Double.valueOf(startmoney));
     conf.options().copyDefaults(true);
     try { conf.save(file); } catch (Exception e) { System.out.println(e.getMessage()); }
@@ -60,7 +60,7 @@ public class MoneyAPI
   public void createPlayerMoney(String name) {
     File file = getMoneyFile();
     FileConfiguration conf = getMoneyConfig();
-    String startmoney = "1000";
+    double startmoney = this.plugin.getConfig().getDouble("Starting Balance");
     conf.addDefault(name + ".Money", Double.valueOf(startmoney));
     conf.options().copyDefaults(true);
     try { conf.save(file); } catch (Exception e) { System.out.println(e.getMessage()); }
@@ -79,11 +79,11 @@ public class MoneyAPI
   }
 
   public String getMoneyString(double amount) {
-    String money = "0.0 " + "Coins";
+    String money = "0.0 " + this.plugin.getConfig().getString("Money Name.Plural");
     if (amount == 1.0D)
-      money = "1.0 " + "Coin";
+      money = "1.0 " + this.plugin.getConfig().getString("Money Name.Single");
     else {
-      money = amount + " " + "Coins";
+      money = amount + " " + this.plugin.getConfig().getString("Money Name.Plural");
     }
     return money;
   }
