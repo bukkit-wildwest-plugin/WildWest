@@ -1,7 +1,7 @@
 /**
  *
  */
-package net.daboross.bukkitdev.wildwest;
+package main.java.net.daboross.bukkitdev.wildwest;
 
 import java.lang.reflect.Method;
 

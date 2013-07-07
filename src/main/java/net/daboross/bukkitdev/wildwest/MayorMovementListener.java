@@ -1,4 +1,4 @@
-package net.daboross.bukkitdev.wildwest;
+package main.java.net.daboross.bukkitdev.wildwest;
 
 import java.util.Map;
 import org.bukkit.Location;

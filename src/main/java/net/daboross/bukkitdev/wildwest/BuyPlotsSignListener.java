@@ -1,4 +1,4 @@
-package net.daboross.bukkitdev.wildwest;
+package main.java.net.daboross.bukkitdev.wildwest;
 
 import org.bukkit.Material;
 import org.bukkit.block.Sign;

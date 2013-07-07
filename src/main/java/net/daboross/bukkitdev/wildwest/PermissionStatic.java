@@ -1,9 +1,10 @@
+
 /*
  * Author: Dabo Ross
  * Website: www.daboross.net
  * Email: daboross@daboross.net
  */
-package net.daboross.bukkitdev.wildwest;
+package main.java.net.daboross.bukkitdev.wildwest;
 
 /**
  *
