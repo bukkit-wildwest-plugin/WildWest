@@ -20,7 +20,7 @@ class Task_Interest
       FileConfiguration conf = money.getMoneyConfig();
       if (!conf.getKeys(false).isEmpty())
         for (String keys : conf.getKeys(false)) {
-          double rate = this.plugin.getConfig().getDouble("Inerest.Rate") / 100.0D + 1.0D;
+          double rate = this.plugin.getConfig().getDouble("Interest.Rate") / 100.0D + 1.0D;
           int time = this.plugin.getConfig().getInt("Interest.Time");
           double cmoney = money.getMoney(keys);
           double p = cmoney * rate;
