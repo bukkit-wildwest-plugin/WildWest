@@ -1,5 +1,6 @@
 package net.daboross.bukkitdev.wildwest;
 
+import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -26,10 +27,9 @@ public class BuyPlotsSignListener implements Listener {
         if (sign.getLine(0).equalsIgnoreCase("[BuyPlots]")) {
             sign.setLine(0, "[BuyPlots]");
             String line2 = sign.getLine(2);
-            int line2num;
             boolean parsed = true;
             try {
-                line2num = Integer.parseInt(line2);
+                Integer.parseInt(line2);
             } catch (NumberFormatException nfe) {
                 parsed = false;
             }
@@ -41,21 +41,17 @@ public class BuyPlotsSignListener implements Listener {
             }
         }
     }
-     @EventHandler
-     public void RightClickSign(PlayerInteractEvent p) {
-        if(p.getClickedBlock().getType() == Material.WALL_SIGN || 
-           p.getClickedBlock().getType() == Material.SIGN ||
-           p.getClickedBlock().getType() == Material.SIGN_POST) {
-           Sign sign = (Sign) p.getClickedBlock().getState();
-           if(p.getAction() == Action.RIGHT_CLICK_BLOCK) {
-              boolean msg = false;
-           if(sign.getLine(0).contains("[Freedom]")) {
-        	
-        	    	/*More to be added done by nerd
-        	    	 * 
-        	    	 */       
-            }  
-        }      
-     }  
-  }   
+
+    @EventHandler
+    public void RightClickSign(PlayerInteractEvent p) {
+        Material t = p.getClickedBlock().getType();
+        if (t == Material.WALL_SIGN || t == Material.SIGN || t == Material.SIGN_POST) {
+            Sign sign = (Sign) p.getClickedBlock().getState();
+            if (p.getAction() == Action.RIGHT_CLICK_BLOCK) {
+                boolean msg = false;
+                if (StringUtils.containsIgnoreCase(sign.getLine(0), "[freedom]")) {
+                }
+            }
+        }
+    }
 }
