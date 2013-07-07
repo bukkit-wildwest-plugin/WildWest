@@ -51,7 +51,7 @@ public class MoneyAPI
   {
     File file = getMoneyFile();
     FileConfiguration conf = getMoneyConfig();
-    String startmoney = "200";
+    String startmoney = "1000";
     conf.addDefault(player.getName() + ".Money", Double.valueOf(startmoney));
     conf.options().copyDefaults(true);
     try { conf.save(file); } catch (Exception e) { System.out.println(e.getMessage()); }
