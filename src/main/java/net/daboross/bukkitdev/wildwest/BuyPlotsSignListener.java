@@ -1,6 +1,5 @@
 package net.daboross.bukkitdev.wildwest;
 
-import org.apache.commons.lang.StringUtils;
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.entity.Player;
@@ -43,14 +42,17 @@ public class BuyPlotsSignListener implements Listener {
     }
 
     @EventHandler
-    public void RightClickSign(PlayerInteractEvent p) {
+    public void onSignClick(PlayerInteractEvent p) {
         Material t = p.getClickedBlock().getType();
-        if (t == Material.WALL_SIGN || t == Material.SIGN || t == Material.SIGN_POST) {
+        if ((t == Material.WALL_SIGN || t == Material.SIGN
+                || t == Material.SIGN_POST)
+                && p.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Sign sign = (Sign) p.getClickedBlock().getState();
-            if (p.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                boolean msg = false;
-                if (StringUtils.containsIgnoreCase(sign.getLine(0), "[freedom]")) {
-                }
+            boolean msg = false;
+            if (sign.getLine(0).contains("[Freedom]")) {
+                /**
+                 * TODO
+                 */
             }
         }
     }
