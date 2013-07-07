@@ -1,4 +1,4 @@
-package io.github.lst96.Wild;
+package net.daboross.bukkitdev.wildwest;
 
 import java.io.File;
 import org.bukkit.configuration.file.FileConfiguration;
@@ -7,10 +7,10 @@ import org.bukkit.entity.Player;
 
 public class MoneyAPI
 {
-  private mcmoney plugin;
+  private WildWestBukkit plugin;
   private static MoneyAPI singleton;
 
-  public MoneyAPI(mcmoney plugin)
+  public MoneyAPI(WildWestBukkit plugin)
   {
     this.plugin = plugin;
     singleton = this;
