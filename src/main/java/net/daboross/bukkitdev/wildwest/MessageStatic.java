@@ -11,4 +11,5 @@ public class MessageStatic {
     public static final String PANNING_NOTHING_FOUND = "You've found nothing";
     public static final String PANNING_FOUND = "You've found %s gold nuggets while panning water!";
     public static final String MAYOR_CANNOT_LEAVE = "You cannont leave your town";
+    public static final String PLAYER_JOIN_WITH_FIREWORK = "Message Here";
 }
