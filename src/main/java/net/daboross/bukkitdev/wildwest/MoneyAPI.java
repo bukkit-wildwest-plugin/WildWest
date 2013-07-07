@@ -60,7 +60,7 @@ public class MoneyAPI
   public void createPlayerMoney(String name) {
     File file = getMoneyFile();
     FileConfiguration conf = getMoneyConfig();
-    String startmoney = "200";
+    String startmoney = "1000";
     conf.addDefault(name + ".Money", Double.valueOf(startmoney));
     conf.options().copyDefaults(true);
     try { conf.save(file); } catch (Exception e) { System.out.println(e.getMessage()); }
