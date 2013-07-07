@@ -1,4 +1,4 @@
-package main.java.net.daboross.bukkitdev.wildwest;
+package net.daboross.bukkitdev.wildwest;
 
 import java.util.logging.Level;
 import net.milkbowl.vault.economy.Economy;

@@ -1,16 +1,14 @@
-/**
- *
- */
-package main.java.net.daboross.bukkitdev.wildwest;
+package net.daboross.bukkitdev.wildwest;
 
 import java.lang.reflect.Method;
-
 import org.bukkit.FireworkEffect;
 import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.entity.Firework;
 import org.bukkit.inventory.meta.FireworkMeta;
-
+/**
+ *
+ */
 public class FireworkEffectPlayer {
 
     private Method world_getHandle = null;
