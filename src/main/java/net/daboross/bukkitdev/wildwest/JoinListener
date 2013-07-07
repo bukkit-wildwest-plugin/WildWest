@@ -13,7 +13,8 @@ import org.bukkit.event.player.PlayerJoinEvent;
  
 public class JoinListener implements Listener {
         FireworkEffectPlayer fplayer = new FireworkEffectPlayer();
-       
+        public JoinListener(WildWestBukkit wildWestBukkit) {
+ 	}
         @EventHandler
         public void onPlayerJoinEvent(PlayerJoinEvent event) throws Exception{
           if(!event.getPlayer().hasPlayedBefore()) {
