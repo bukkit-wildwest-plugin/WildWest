@@ -38,6 +38,7 @@ public class WildWestBukkit extends JavaPlugin {
         pm.registerEvents(new GoldPanningListener(this), this);
         pm.registerEvents(new MayorMovementListener(this), this);
         pm.registerEvents(new BuyPlotsSignListener(this), this);
+        pm.registerEvents(new JoinListener(this), this)
     }
 
     @Override
