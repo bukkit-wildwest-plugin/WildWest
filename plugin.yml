@@ -1,0 +1,6 @@
+name: WildWest
+main: net.daboross.bukkitdev.wildwest.WildWestBukkit
+version: 1.0
+authors: [Dabo Ross, NerdFurys, Shadow-Ninjax, lst96]
+description: WildWest - Bukkit plugin
+depend: [Vault]
