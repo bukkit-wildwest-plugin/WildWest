@@ -37,13 +37,15 @@ public class BuyPlotsSignListener implements Listener {
             }
         }
     }
-            @EventHandler
-        public void RightClickSign(PlayerInteractEvent p) {
-         if(p.getClickedBlock().getType() == Material.WALL_SIGN || p.getClickedBlock().getType() == Material.SIGN || p.getClickedBlock().getType() == Material.SIGN_POST) {
-          Sign sign = (Sign) p.getClickedBlock().getState();
-          if(p.getAction() == Action.RIGHT_CLICK_BLOCK) {
-                boolean msg = false;
-        	    if(sign.getLine(0).contains("[Freedom]")) {
+     @EventHandler
+     public void RightClickSign(PlayerInteractEvent p) {
+        if(p.getClickedBlock().getType() == Material.WALL_SIGN || 
+           p.getClickedBlock().getType() == Material.SIGN || 
+           p.getClickedBlock().getType() == Material.SIGN_POST) {
+           Sign sign = (Sign) p.getClickedBlock().getState();
+           if(p.getAction() == Action.RIGHT_CLICK_BLOCK) {
+              boolean msg = false;
+           if(sign.getLine(0).contains("[Freedom]")) {
         	
         	    	/*More to be added done by nerd
         	    	 * 
