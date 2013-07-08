@@ -53,6 +53,7 @@ public class WildWestBukkit extends JavaPlugin implements Listener {
 
         getCommand("money").setExecutor(new Command_Money(this));
         getCommand("pay").setExecutor(new Command_Pay(this));
+        getCommand("setbandit").setExecutor(new TeleportingBandits(this));
 
         getServer().getScheduler().scheduleSyncRepeatingTask(this, new Task_Interest(this), 72000 * getConfig().getInt("Interest.Time"), 72000 * getConfig().getInt("Interest.Time"));
 
