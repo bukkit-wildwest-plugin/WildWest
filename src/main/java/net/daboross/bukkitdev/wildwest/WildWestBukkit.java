@@ -44,6 +44,7 @@ public class WildWestBukkit extends JavaPlugin implements Listener {
         pm.registerEvents(new MayorMovementListener(this), this);
         pm.registerEvents(new BuyPlotsSignListener(this), this);
         pm.registerEvents(new JoinListener(this), this);
+        pm.registerEvents(new TeleportingBandits(this), this);
     }
     {
         new MoneyAPI(this);
