@@ -4,3 +4,12 @@ version: 1.0
 authors: [Dabo Ross, NerdFurys, Shadow-Ninjax, lst96]
 description: WildWest - Bukkit plugin
 depend: [Vault]
+commands:
+  money:
+    description: Money commands
+    aliases: []
+    usage: /money (name)
+  pay:
+    description: Pay a player money
+    aliases: []
+    usage: /pay [name] [amount]
