@@ -11,13 +11,13 @@ import org.bukkit.event.player.PlayerJoinEvent;
 /**
  *
  */
-public class JoinListener implements Listener {
+public class FireWorksJoinListener implements Listener {
 
     private final WildWestBukkit wildWestBukkit;
     private final FireworkEffectPlayer fireworkEffectPlayer = new FireworkEffectPlayer();
     private final FireworkEffect fireworkEffect = FireworkEffect.builder().withColor(Color.GREEN).withFade(Color.GREEN).with(FireworkEffect.Type.BURST).flicker(true).trail(false).build();
 
-    public JoinListener(WildWestBukkit wildWestBukkit) {
+    public FireWorksJoinListener(WildWestBukkit wildWestBukkit) {
         this.wildWestBukkit = wildWestBukkit;
     }
 

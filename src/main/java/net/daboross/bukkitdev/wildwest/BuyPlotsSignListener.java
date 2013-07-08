@@ -44,8 +44,7 @@ public class BuyPlotsSignListener implements Listener {
     @EventHandler
     public void onSignClick(PlayerInteractEvent p) {
         Material t = p.getClickedBlock().getType();
-        if ((t == Material.WALL_SIGN || t == Material.SIGN
-                || t == Material.SIGN_POST)
+        if ((t == Material.WALL_SIGN || t == Material.SIGN || t == Material.SIGN_POST)
                 && p.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Sign sign = (Sign) p.getClickedBlock().getState();
             if (sign.getLine(0).contains("[Freedom]")) {
