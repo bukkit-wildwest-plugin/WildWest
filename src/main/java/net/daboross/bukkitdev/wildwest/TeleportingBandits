@@ -1,3 +1,5 @@
+package net.daboross.bukkitdev.wildwest;
+
 import org.bukkit.Material;
 import org.bukkit.block.Sign;
 import org.bukkit.command.Command;
@@ -13,7 +15,7 @@ import org.bukkit.Location;
 import org.bukkit.World;
 import org.bukkit.plugin.java.JavaPlugin;
 
-public class WildWestBukkit extends JavaPlugin implements Listener{
+public class TeleportingBandits extends JavaPlugin implements Listener{
     @Override
     public void onEnable() {
     	Bukkit.getPluginManager().registerEvents(this,this);
