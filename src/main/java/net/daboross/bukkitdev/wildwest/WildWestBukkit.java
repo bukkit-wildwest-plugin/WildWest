@@ -32,16 +32,11 @@ public class WildWestBukkit extends JavaPlugin {
             getLogger().log(Level.SEVERE, "Can't enable!");
             pm.disablePlugin(this);
         }
-
         config = new WildWestConfiguration(this);
         moneyAPI = new MoneyAPI(this);
         teleportingBandits = new TeleportingBandits(this);
-
         registerEvents(pm);
-        createMoneyFile();
         registerCommands();
-        getServer().getScheduler().scheduleSyncRepeatingTask(this, new TaskInterest(this),
-                72000 * config.getInterestTime(), 72000 * config.getInterestTime());
     }
 
     @Override
@@ -78,23 +73,10 @@ public class WildWestBukkit extends JavaPlugin {
     }
 
     private void registerCommands() {
-        PluginCommand money = getCommand("money");
-        PluginCommand pay = getCommand("pay");
         PluginCommand setbandit = getCommand("setbandit");
-        if (money != null) {
-            money.setExecutor(new CommandMoney(this));
-        }
-        if (pay != null) {
-            pay.setExecutor(new CommandPay(this));
-        }
         if (setbandit != null) {
             setbandit.setExecutor(teleportingBandits);
         }
-    }
-
-    private void createMoneyFile() {
-        saveResource("money.yml", false);
-        //Don't need to check if it exists, saveResource() already does.
     }
 
     public WildWestConfiguration getWildWestConfiguration() {

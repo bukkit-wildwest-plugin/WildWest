@@ -1,7 +1,11 @@
 package net.daboross.bukkitdev.wildwest.moneyapi;
 
 import java.io.File;
+import net.daboross.bukkitdev.wildwest.TaskInterest;
 import net.daboross.bukkitdev.wildwest.WildWestBukkit;
+import net.daboross.bukkitdev.wildwest.WildWestConfiguration;
+import org.bukkit.Bukkit;
+import org.bukkit.command.PluginCommand;
 import org.bukkit.configuration.file.FileConfiguration;
 import org.bukkit.configuration.file.YamlConfiguration;
 import org.bukkit.entity.Player;
@@ -12,6 +16,18 @@ public class MoneyAPI {
 
     public MoneyAPI(WildWestBukkit plugin) {
         this.plugin = plugin;
+        plugin.saveResource("money.yml", false);
+        PluginCommand money = plugin.getCommand("money");
+        PluginCommand pay = plugin.getCommand("pay");
+        if (money != null) {
+            money.setExecutor(new CommandMoney(plugin));
+        }
+        if (pay != null) {
+            pay.setExecutor(new CommandPay(plugin));
+        }
+        WildWestConfiguration config = plugin.getWildWestConfiguration();
+        Bukkit.getScheduler().scheduleSyncRepeatingTask(plugin, new TaskInterest(plugin),
+                72000 * config.getInterestTime(), 72000 * config.getInterestTime());
     }
 
     public File getMoneyFile() {
