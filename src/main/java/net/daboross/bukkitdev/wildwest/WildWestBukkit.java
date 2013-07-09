@@ -13,7 +13,7 @@ import org.bukkit.plugin.java.JavaPlugin;
 public class WildWestBukkit extends JavaPlugin implements Listener {
 
     private WildWestConfiguration config;
-    @Override
+
     public void onEnable(){
         	    new MoneyAPI(this);
 
