@@ -1,5 +1,6 @@
-package net.daboross.bukkitdev.wildwest;
+package net.daboross.bukkitdev.wildwest.moneyapi;
 
+import net.daboross.bukkitdev.wildwest.WildWestBukkit;
 import org.bukkit.configuration.file.FileConfiguration;
 
 class Task_Interest

@@ -1,12 +1,13 @@
-package net.daboross.bukkitdev.wildwest;
+package net.daboross.bukkitdev.wildwest.moneyapi;
 
+import net.daboross.bukkitdev.wildwest.WildWestBukkit;
 import org.bukkit.ChatColor;
 import org.bukkit.command.Command;
 import org.bukkit.command.CommandExecutor;
 import org.bukkit.command.CommandSender;
 import org.bukkit.entity.Player;
 
-class Command_Money
+public class Command_Money
   implements CommandExecutor
 {
   private WildWestBukkit plugin;

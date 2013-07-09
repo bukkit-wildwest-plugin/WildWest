@@ -7,7 +7,7 @@ depend: [Vault]
 commands:
   money:
     description: Money commands
-    aliases: [mcmoney]
+    aliases: []
     usage: /money (name)
   pay:
     description: Pay a player money
