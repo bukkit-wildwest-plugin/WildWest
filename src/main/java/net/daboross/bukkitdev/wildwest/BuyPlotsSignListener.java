@@ -47,7 +47,7 @@ public class BuyPlotsSignListener implements Listener {
         if ((t == Material.WALL_SIGN || t == Material.SIGN || t == Material.SIGN_POST)
                 && p.getAction() == Action.RIGHT_CLICK_BLOCK) {
             Sign sign = (Sign) p.getClickedBlock().getState();
-            if (sign.getLine(0).contains("[Freedom]")) {
+            if (sign.getLine(0).contains("[Freedom]")){
                 /**
                  * TODO
                  */
