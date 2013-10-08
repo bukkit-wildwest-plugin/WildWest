@@ -1,0 +1,44 @@
+package me.dylan.unit4;
+import java.io.IOException;
+import java.util.Scanner;
+import java.applet.Applet;
+
+
+
+
+
+
+
+@SuppressWarnings("serial")
+public class Problem1 extends Applet{
+
+
+	public static void main(String[] args) throws IOException {
+			  System.out.println("How many maruchan noodles do you want to eat?");
+
+			  Scanner scan = new Scanner (System.in);
+		 	  int noodles = scan.nextInt();
+		 	  
+			  if(noodles <= 2){
+				  double purchase = (double) (noodles*2.49);
+				  System.out.println(purchase + "$");
+	         }else if(noodles  >= 3){
+	         double purchase2 = 4.98;
+	         double purchaseafter = (double) (noodles*2.2);
+	         System.out.println("Maruchan Noodles");
+	         System.out.println(noodles + " Purchased");
+	         System.out.println(purchase2 + purchaseafter + "$");
+	    	
+	     }else{
+	    	 System.out.println("Error");
+	     }
+
+
+				  
+
+
+
+	     
+	 }
+
+}
