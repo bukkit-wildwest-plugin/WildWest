@@ -1,14 +1,5 @@
-/*
- * Author: Dabo Ross
- * Website: www.daboross.net
- * Email: daboross@daboross.net
- */
 package net.daboross.bukkitdev.wildwest;
 
-import java.util.ArrayList;
-import java.util.Collections;
-import java.util.List;
-import java.util.logging.Level;
 import org.bukkit.Bukkit;
 import org.bukkit.Location;
 import org.bukkit.World;
@@ -16,34 +7,69 @@ import org.bukkit.configuration.file.FileConfiguration;
 
 /**
  *
- * @author daboross
  */
 public class WildWestConfiguration {
 
     private final WildWestBukkit wildWestBukkit;
-    private final List<Location> panningLocations = new ArrayList<Location>();
+    private boolean interestEnabled;
+    private double interestRate;
+    private int interestTime;
+    private int distanceMayorCanMove;
+    private int banditX, banditY, banditZ;
+    private String banditWorldName;
 
     public WildWestConfiguration(WildWestBukkit wildWestBukkit) {
         this.wildWestBukkit = wildWestBukkit;
-        FileConfiguration config = wildWestBukkit.getConfig();
-        for (String panningLocationSection : config.getConfigurationSection("PanLocations").getKeys(false)) {
-            double panningX = config.getDouble("pan-locations." + panningLocationSection + ".x");
-            double panningY = config.getDouble("pan-locations." + panningLocationSection + ".y");
-            double panningZ = config.getDouble("pan-locations." + panningLocationSection + ".z");
-            String panningWorldName = config.getString("pan-locations." + panningLocationSection + ".world");
-            World panningWorld = Bukkit.getWorld(panningWorldName);
-            if (panningWorld == null) {
-                wildWestBukkit.getLogger().log(Level.WARNING, "Invalid world in config: {0}", panningWorldName);
-            } else {
-                Location location = new Location(panningWorld, panningX, panningY, panningZ);
-                if (location != null) {
-                    panningLocations.add(location);
-                }
-            }
-        }
+        reloadConfig0();
     }
 
-    public List<Location> getPanningLocations() {
-        return Collections.unmodifiableList(panningLocations);
+    private void reloadConfig0() {
+        FileConfiguration config = wildWestBukkit.getConfig();
+        wildWestBukkit.saveDefaultConfig();
+        interestEnabled = config.getBoolean("interest.enabled");
+        interestRate = config.getDouble("interest.rate");
+        interestTime = config.getInt("interest.time");
+        distanceMayorCanMove = 50; // Where?
+        banditX = config.getInt("bandit.location.x");
+        banditY = config.getInt("bandit.location.y");
+        banditZ = config.getInt("bandit.location.z");
+        banditWorldName = config.getString("bandit.location.world");
+    }
+
+    public void reloadConfig() {
+        reloadConfig0();
+    }
+
+    public int getDistanceMayorCanMove() {
+        return distanceMayorCanMove;
+    }
+
+    public double getInterestRate() {
+        return interestRate;
+    }
+
+    public int getInterestTime() {
+        return interestTime;
+    }
+
+    public boolean isInterestEnabled() {
+        return interestEnabled;
+    }
+
+    public Location getBanditLocation() {
+        World banditWorld = Bukkit.getWorld(banditWorldName);
+        if (banditWorld == null) {
+            throw new IllegalStateException("Bandit world unknown!");
+            // Anyone know of a better exception to throw here other than
+            // IllegalStateException?
+        }
+        return new Location(banditWorld, banditX, banditY, banditZ);
+    }
+
+    public void setBanditLocation(Location l) {
+        banditX = (int) l.getX();
+        banditY = (int) l.getY();
+        banditZ = (int) l.getZ();
+        banditWorldName = l.getWorld().getName();
     }
 }

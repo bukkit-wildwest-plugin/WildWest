@@ -1,0 +1,8 @@
+Interest:
+  Enabled: true
+  Time: 1
+  Rate: 2.5
+Money Name:
+  Single: Coin
+  Plural: Coins
+Starting Balance: 200.0
